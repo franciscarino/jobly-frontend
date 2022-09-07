@@ -1,8 +1,8 @@
 // import logo from './logo.svg';
 import { BrowserRouter } from 'react-router-dom';
 import './App.css';
-import Navigation from './Navigation';
-import RoutesList from './RoutesList';
+import Navigation from './routing/Navigation';
+import RoutesList from './routing/RoutesList';
 
 /** App component
  * 

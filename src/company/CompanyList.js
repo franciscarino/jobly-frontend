@@ -1,38 +1,50 @@
 import { useState, useEffect } from "react";
-import JoblyApi from "./api";
+import JoblyApi from "../api";
 import CompanyCard from "./CompanyCard";
-import SearchForm from "./SearchForm";
-
-//NEED SEARCH FROM
-
+import SearchForm from "../common/SearchForm";
 
 /** Render full list of companies
+ *  (add detail)
+ *  Show parent and children
  * 
  * State:
  *  - companies
  */
+
 function CompanyList() {
-  const [companies, setCompanies] = useState([]);
+  const [companies, setCompanies] = useState({
+    data: [],
+    isLoading: true,
+  });
 
   useEffect(function renderCompanies() {
     async function getCompanies() {
       const companiesResult = await JoblyApi.getAllCompanies();
 
-      setCompanies(companiesResult);
+      setCompanies({
+        data: companiesResult,
+        isLoading: false
+      });
     }
     getCompanies();
   }, []);
 
   /**Search for company */
   async function filterCompanies(name) {
-    let companies = await JoblyApi.getCompaniesByQuery(name);
-    setCompanies(companies);
+    let companiesResult = await JoblyApi.getCompaniesByQuery(name);
+    setCompanies({
+      ...companies,
+      data: companiesResult
+    });
   }
+
+  if (companies.isLoading) return <i>Loading...</i>;
+
 
   return (
     <div>
       {<SearchForm submitQuery={filterCompanies} />}
-      {companies.map(c =>
+      {companies.data.map(c =>
         <CompanyCard
           name={c.name}
           handle={c.handle}

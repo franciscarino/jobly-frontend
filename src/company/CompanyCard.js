@@ -8,8 +8,6 @@ import { Link } from "react-router-dom";
 
 function CompanyCard({ name, description, handle, logoUrl }) {
 
-    //TODO: Double check company logo image render.
-
     return (
         <Link to={`/companies/${handle}`}>
             <div>
