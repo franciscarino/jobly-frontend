@@ -56,7 +56,7 @@ class JoblyApi {
     let res = await this.request(`companies?name=${name}`);
     return res.companies;
   }
-  
+
   /** Get list of all jobs */
   static async getAllJobs() {
     let res = await this.request(`jobs/`);
@@ -68,6 +68,26 @@ class JoblyApi {
     let res = await this.request(`jobs?title=${title}`);
     return res.jobs;
   }
+
+  /**Log in to site */
+  static async login(data) {
+    let res = await this.request("auth/token", data, "post");
+    return res.token;
+  }
+
+  /**Sign up */
+  static async register(data) {
+    let res = await this.request("auth/register", data, "post");
+    return res.token;
+  }
+
+  //TODO: look into token
+  /**Update user profile */
+  static async updateProfile(data) {
+    let res = await this.request(`users/${data.username}`, data, "patch");
+    return res.user;
+  }
+
 }
 
 
