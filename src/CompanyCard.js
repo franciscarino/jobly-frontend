@@ -20,7 +20,7 @@ function CompanyCard({ name, description, handle, logoUrl }) {
                 }
             </div>
         </Link>
-    )
+    );
 
 }
 
