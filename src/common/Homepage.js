@@ -1,6 +1,11 @@
+import "./Homepage.css";
 
 function Homepage() {
-    return(<p>This is the homepage!</p>)
+    return (
+        <div className="homepage">
+            <h1>Jobly</h1>
+            <p>All the jobs in one, convenient place.</p>
+        </div>);
 }
 
 

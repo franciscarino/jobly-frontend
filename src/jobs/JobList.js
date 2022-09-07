@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import JoblyApi from "../api";
 import SearchForm from "../common/SearchForm";
 import JobCardList from "./JobCardList";
+import Spinner from "../common/Spinner";
 
 /** Render full list of jobs
  *  TODO:Add detail
@@ -37,7 +38,7 @@ function JobList() {
         });
     }
 
-    if (jobs.isLoading) return <i>Loading...</i>;
+    if (jobs.isLoading) return <Spinner />;
 
     return (
         <div>

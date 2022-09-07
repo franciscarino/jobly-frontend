@@ -1,3 +1,9 @@
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import JoblyApi from "../api";
+import JobCardList from "../jobs/JobCardList";
+import Spinner from "../common/Spinner";
+
 /** Show detail on a single company by handle.
  *   Detail is: name, description, logo, jobs
  * 
@@ -6,15 +12,11 @@
  * CompanyDetail -> JobCardList -> JobCard
  */
 
-import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import JoblyApi from "../api";
-import JobCardList from "../jobs/JobCardList";
-
 function CompanyDetail() {
 
     const [company, setCompany] = useState({
-        isLoading: true});
+        isLoading: true
+    });
 
     const handleParam = useParams(); // {handleParam: ...}
 
@@ -28,18 +30,18 @@ function CompanyDetail() {
         }
 
         fetchCompany();
-    }, [handleParam]) // Why is this giving errors when left off?
+    }, [handleParam]); // Why is this giving errors when left off?
 
     //return spinner component
-    if (company.isLoading) return <i>Loading...</i>;
+    if (company.isLoading) return <Spinner />;
 
-    return(
+    return (
         <div>
             <h1>{company.name}</h1>
             <p>{company.description}</p>
             <JobCardList jobs={company.jobs} />
         </div>
-    )
+    );
 
 }
 

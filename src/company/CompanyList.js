@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import JoblyApi from "../api";
 import CompanyCard from "./CompanyCard";
 import SearchForm from "../common/SearchForm";
+import Spinner from "../common/Spinner";
 
 /** Render full list of companies
  *  (add detail)
@@ -38,7 +39,7 @@ function CompanyList() {
     });
   }
 
-  if (companies.isLoading) return <i>Loading...</i>;
+  if (companies.isLoading) return <Spinner />;
 
 
   return (
