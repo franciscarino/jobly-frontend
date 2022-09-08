@@ -16,6 +16,7 @@ function Navigation({ logout }) {
 
   //fix destructuring?
   const user = useContext(userContext);
+  console.log(user)
 
   return (
     <nav className="Navigation navbar navbar-expand-md">

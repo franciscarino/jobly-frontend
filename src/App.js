@@ -20,6 +20,7 @@ import jwt_decode from "jwt-decode";
 function App() {
 
   const [user, setUser] = useState(null);
+  
   const [token, setToken] = useState(localStorage.getItem('token') || null);
 
   function updateToken(userToken) {
@@ -56,7 +57,6 @@ function App() {
     setUser(null);
     setToken("");
     JoblyApi.token = "";
-    // localStorage.clear();
     localStorage.removeItem('token');
   }
 
@@ -65,7 +65,9 @@ function App() {
       <userContext.Provider value={user}>
         <BrowserRouter>
           <Navigation logout={logout} />
-          <RoutesList updateProfile={updateProfile} updateToken={updateToken} />
+          <RoutesList updateProfile={updateProfile} 
+                      updateToken={updateToken} 
+                      token={token}/>
         </BrowserRouter>
       </userContext.Provider>
     </div>

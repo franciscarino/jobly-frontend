@@ -1,7 +1,7 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import userContext from "../userContext";
-import JoblyApi from "../api";
+import Spinner from "../common/Spinner";
 
 /** Signup Form
  *
@@ -16,10 +16,19 @@ import JoblyApi from "../api";
 
 function ProfileForm({ updateProfile }) {
 
+    const navigate = useNavigate();
     const user = useContext(userContext);
 
     const [formData, setFormData] = useState(user);
-    const navigate = useNavigate();
+
+    //Update with user information after initial render:
+    useEffect(function updateUserFormData() {
+        async function updateData() {
+            setFormData(user);
+        }
+        updateData();
+    }, [user]);
+
 
     /** Update form input. */
     function handleChange(evt) {
@@ -30,6 +39,7 @@ function ProfileForm({ updateProfile }) {
         }));
     }
 
+    /** Handle form submission in parent component. */
     async function handleSubmit(evt) {
         evt.preventDefault();
         let updatedFormData = {
@@ -41,6 +51,7 @@ function ProfileForm({ updateProfile }) {
         navigate('/')
     }
 
+    if (formData === null) return <Spinner />;
 
     return (
         <div>
