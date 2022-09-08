@@ -27,6 +27,11 @@ function App() {
     localStorage.setItem('token', userToken);
   }
 
+  async function updateProfile(userData) {
+    let response = await JoblyApi.updateProfile(userData, user.username);
+    setUser(response);
+  }
+  
   useEffect(function fetchUser() {
     async function updateUser() {
       if (token) {
@@ -60,7 +65,7 @@ function App() {
       <userContext.Provider value={user}>
         <BrowserRouter>
           <Navigation logout={logout} />
-          <RoutesList updateToken={updateToken} />
+          <RoutesList updateProfile={updateProfile} updateToken={updateToken} />
         </BrowserRouter>
       </userContext.Provider>
     </div>

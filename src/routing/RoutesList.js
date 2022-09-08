@@ -17,7 +17,7 @@ import userContext from "../userContext";
  */
 
 
-function RoutesList({ updateToken }) {
+function RoutesList({ updateProfile, updateToken }) {
   const user = useContext(userContext);
 
   return (
@@ -37,7 +37,7 @@ function RoutesList({ updateToken }) {
           <Route path="/companies" element={<CompanyList />} />
           <Route path="/companies/:handle" element={<CompanyDetail />} />
           <Route path="/jobs" element={<JobList />} />
-          <Route path="/profile" element={<ProfileForm />} />
+          <Route path="/profile" element={<ProfileForm updateProfile={updateProfile} />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       }

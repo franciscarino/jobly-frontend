@@ -81,8 +81,8 @@ class JoblyApi {
 
   //TODO: look into token
   /**Update user profile */
-  static async updateProfile(data) {
-    let res = await this.request(`users/${data.username}`, data, "patch");
+  static async updateProfile(data,username) {
+    let res = await this.request(`users/${username}`, data, "patch");
     return res.user;
   }
 
