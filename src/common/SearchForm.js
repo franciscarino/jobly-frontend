@@ -10,6 +10,7 @@ import { useState } from "react";
  * 
  * {CompanyList, JobList} -> SearchForm
  */
+
 function SearchForm({ submitQuery }) {
   const [formData, setFormData] = useState("");
 

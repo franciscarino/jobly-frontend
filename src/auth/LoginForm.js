@@ -9,6 +9,8 @@ const defaultInitialFormData = { username: "", password: "" };
  *
  * Accept credentials, make post request, return token
  *
+ * Props: updateToken
+ * 
  * State:
  *  - formData
  */

@@ -5,11 +5,12 @@ import SearchForm from "../common/SearchForm";
 import Spinner from "../common/Spinner";
 
 /** Render full list of companies
- *  (add detail)
- *  Show parent and children
- * 
+
  * State:
  *  - companies
+ * 
+ * RoutesList -> CompanyList -> {CompanyCard, SearchForm}
+ * 
  */
 
 function CompanyList() {

@@ -2,6 +2,8 @@
  * 
  * Props: { name, description, handle, logo }
  * 
+ * CompanyList -> CompanyCard
+ * 
  */
 
 import { Link } from "react-router-dom";

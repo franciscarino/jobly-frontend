@@ -10,6 +10,16 @@ const defaultInitialFormData = {
   email: ""
 };
 
+
+/** Signup Form
+ *
+ * Accept profile data, make post request, return token
+ *
+ * Props: updateToken
+ * 
+ * State: formData
+ */
+
 function SignupForm({ updateToken }) {
   const [formData, setFormData] = useState(defaultInitialFormData);
   const navigate = useNavigate();
@@ -40,7 +50,6 @@ function SignupForm({ updateToken }) {
           <input
             id="signupForm-username"
             name="username"
-            // className="form-control"
             onChange={handleChange}
             value={formData.username}
             aria-label="username"
@@ -62,7 +71,6 @@ function SignupForm({ updateToken }) {
           <input
             id="signupForm-firstName"
             name="firstName"
-            // className="form-control"
             onChange={handleChange}
             value={formData.firstName}
             aria-label="firstName"
@@ -73,7 +81,6 @@ function SignupForm({ updateToken }) {
           <input
             id="signupForm-lastName"
             name="lastName"
-            // className="form-control"
             onChange={handleChange}
             value={formData.lastName}
             aria-label="lastName"
@@ -84,7 +91,6 @@ function SignupForm({ updateToken }) {
           <input
             id="signupForm-email"
             name="email"
-            // className="form-control"
             onChange={handleChange}
             value={formData.email}
             aria-label="email"

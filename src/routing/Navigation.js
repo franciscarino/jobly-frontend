@@ -4,9 +4,17 @@ import "./Navigation.css";
 import { useContext } from "react";
 import userContext from "../userContext";
 
+/** 
+ * Navbar for site navigation.
+ * 
+ * Props: logout (removes user token)
+ * 
+ * App -> Navigation
+ */
+
 function Navigation({ logout }) {
 
-  //TODO: fix destructuring?
+  //fix destructuring?
   const user = useContext(userContext);
 
   return (

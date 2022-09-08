@@ -5,10 +5,12 @@ import JobCardList from "./JobCardList";
 import Spinner from "../common/Spinner";
 
 /** Render full list of jobs
- *  TODO:Add detail
  * 
  * State:
  *  - jobs
+ * 
+ * RoutesList -> JobList -> {JobCardList, SearchForm}
+ * 
  */
 
 function JobList() {

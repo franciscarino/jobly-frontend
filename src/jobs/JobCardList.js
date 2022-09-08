@@ -5,6 +5,8 @@ import JobCard from "./JobCard"
  * Props: array of job objects
  * [{id,title,salary,equity,companyHandle,companyName}...]
  * 
+ * {JobList, CompanyDetail} -> JobCardList -> JobCard
+ * 
  */
 
 

@@ -1,4 +1,4 @@
-// import logo from './logo.svg';
+
 import { useEffect, useState } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import './App.css';
@@ -10,15 +10,17 @@ import jwt_decode from "jwt-decode";
 
 /** App component
  * 
+ * Handles authentication of user and sets token on JoblyApi class.
+ * 
+ * State: user, token
+ * 
  * App -> {Navigation, RoutesList}
  */
-
-
 
 function App() {
 
   const [user, setUser] = useState(null);
-  const [token, setToken] = useState(null);
+  const [token, setToken] = useState("");
 
   function updateToken(userToken) {
     JoblyApi.token = userToken;
@@ -27,13 +29,15 @@ function App() {
 
   useEffect(function fetchUser() {
     async function updateUser() {
-      let userObj = jwt_decode(token);
-      let currentUser = await JoblyApi.getUser(userObj);
-      setUser(currentUser);
-    };
-
+      try {
+        let userObj = jwt_decode(token);
+        let currentUser = await JoblyApi.getUser(userObj);
+        setUser(currentUser);
+      } catch (err) {
+        setUser(null);
+      }
+    }
     updateUser();
-
   }, [token]);
 
   function logout() {
@@ -41,8 +45,7 @@ function App() {
     JoblyApi.token = "";
   }
 
-  console.log("logout user: ", user);
-  console.log("logout API Token: ", JoblyApi.token);
+  console.log("API Token: ", JoblyApi.token);
 
   return (
     <div className="App">

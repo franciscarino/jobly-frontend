@@ -11,8 +11,10 @@ import ProfileForm from "../auth/ProfileForm";
 
 /**RoutesList component
  * 
- * RoutesList -> {Homepage, CompanyList, CompanyDetail, JobList}
+ * RoutesList -> {Homepage, CompanyList, CompanyDetail, JobList, Profile, Login, Signup}
  */
+
+
 function RoutesList({ updateToken }) {
   return (
     <Routes>

@@ -2,6 +2,12 @@ import userContext from "../userContext";
 import { useContext } from "react";
 import "./Homepage.css";
 
+
+/** Presentational component for homepage.
+ * 
+ * RoutesList -> Homepage
+ */
+
 function Homepage() {
     const user = useContext(userContext);
     return (

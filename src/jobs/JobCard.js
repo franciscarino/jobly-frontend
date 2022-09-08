@@ -2,6 +2,8 @@
  * 
  * Props: { title, description, handle, logo }
  * 
+ * JobCardList -> JobCard
+ * 
  */
 
 function JobCard({ title, companyName, salary, equity }) {
