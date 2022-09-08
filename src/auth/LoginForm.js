@@ -12,7 +12,7 @@ const defaultInitialFormData = { username: "", password: "" };
  * State:
  *  - formData
  */
-function LoginForm({ updateUser }) {
+function LoginForm({ updateToken }) {
   const [formData, setFormData] = useState(defaultInitialFormData);
   const navigate = useNavigate();
 
@@ -28,8 +28,8 @@ function LoginForm({ updateUser }) {
   async function handleSubmit(evt) {
     evt.preventDefault();
     let response = await JoblyApi.login(formData);
-    updateUser(response);
-            console.log(response);
+    updateToken(response);
+    console.log(response);
     navigate("/");
   }
 
@@ -53,6 +53,7 @@ function LoginForm({ updateUser }) {
           <input
             id="loginForm-password"
             name="password"
+            type="password"
             // className="form-control"
             onChange={handleChange}
             value={formData.password}

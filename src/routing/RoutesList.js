@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
 import Homepage from "../common/Homepage";
 import CompanyList from "../company/CompanyList";
-import CompanyDetail from "../company/CompanyDetail"
+import CompanyDetail from "../company/CompanyDetail";
 import JobList from "../jobs/JobList";
 import LoginForm from "../auth/LoginForm";
 import SignupForm from "../auth/SignupForm";
@@ -13,7 +13,7 @@ import ProfileForm from "../auth/ProfileForm";
  * 
  * RoutesList -> {Homepage, CompanyList, CompanyDetail, JobList}
  */
-function RoutesList({updateUser}) {
+function RoutesList({ updateToken }) {
   return (
     <Routes>
       <Route path="/" element={<Homepage />} />
@@ -21,8 +21,8 @@ function RoutesList({updateUser}) {
       <Route path="/companies/:handle" element={<CompanyDetail />} />
       <Route path="/jobs" element={<JobList />} />
       <Route path="/profile" element={<ProfileForm />} />
-      <Route path="/login" element={<LoginForm updateUser={updateUser}/>} />
-      <Route path="/signup" element={<SignupForm />} />
+      <Route path="/login" element={<LoginForm updateToken={updateToken} />} />
+      <Route path="/signup" element={<SignupForm updateToken={updateToken} />} />
       <Route path="*" element={<Navigate to="/" />} />
     </Routes>
   );

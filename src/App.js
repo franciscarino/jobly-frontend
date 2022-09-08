@@ -6,7 +6,7 @@ import Navigation from './routing/Navigation';
 import RoutesList from './routing/RoutesList';
 import userContext from './userContext';
 import JoblyApi from './api';
-import jwt_decode from "jwt-decode"
+import jwt_decode from "jwt-decode";
 
 /** App component
  * 
@@ -18,24 +18,38 @@ import jwt_decode from "jwt-decode"
 function App() {
 
   const [user, setUser] = useState(null);
+  const [token, setToken] = useState(null);
 
-  function updateUser(userToken) {
+  function updateToken(userToken) {
     JoblyApi.token = userToken;
-    let userData = jwt_decode(userToken)
-
-    // async function getUserInformation() {}
-
-    console.log("user data object:", userData);
-    console.log("API token:", JoblyApi.token)
-    setUser(userData);
+    setToken(userToken);
   }
+
+  useEffect(function fetchUser() {
+    async function updateUser() {
+      let userObj = jwt_decode(token);
+      let currentUser = await JoblyApi.getUser(userObj);
+      setUser(currentUser);
+    };
+
+    updateUser();
+
+  }, [token]);
+
+  function logout() {
+    setUser(null);
+    JoblyApi.token = "";
+  }
+
+  console.log("logout user: ", user);
+  console.log("logout API Token: ", JoblyApi.token);
 
   return (
     <div className="App">
       <userContext.Provider value={user}>
         <BrowserRouter>
-          <Navigation />
-          <RoutesList updateUser={updateUser}/>
+          <Navigation logout={logout} />
+          <RoutesList updateToken={updateToken} />
         </BrowserRouter>
       </userContext.Provider>
     </div>
