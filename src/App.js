@@ -21,7 +21,7 @@ function App() {
 
   const [user, setUser] = useState(null);
   
-  const [token, setToken] = useState(localStorage.getItem('token') || null);
+  const [token, setToken] = useState(localStorage.getItem('token') || '');
 
   function updateToken(userToken) {
     setToken(userToken);
