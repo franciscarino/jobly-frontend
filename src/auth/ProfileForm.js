@@ -3,16 +3,13 @@ import { useNavigate } from "react-router-dom";
 import userContext from "../userContext";
 import Spinner from "../common/Spinner";
 
-/** Signup Form
+/** Profile Form
  *
- * Accept profile data, make post request, return token
- *
- * Props: updateToken
+ * Props: updateProfile
  * 
  * State: formData
  */
 
-//can't change username (setting on form?)
 
 function ProfileForm({ updateProfile }) {
 
