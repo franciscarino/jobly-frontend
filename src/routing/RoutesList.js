@@ -19,12 +19,12 @@ function RoutesList({ updateToken }) {
   return (
     <Routes>
       <Route path="/" element={<Homepage />} />
+      <Route path="/login" element={<LoginForm updateToken={updateToken} />} />
+      <Route path="/signup" element={<SignupForm updateToken={updateToken} />} />
       <Route path="/companies" element={<CompanyList />} />
       <Route path="/companies/:handle" element={<CompanyDetail />} />
       <Route path="/jobs" element={<JobList />} />
       <Route path="/profile" element={<ProfileForm />} />
-      <Route path="/login" element={<LoginForm updateToken={updateToken} />} />
-      <Route path="/signup" element={<SignupForm updateToken={updateToken} />} />
       <Route path="*" element={<Navigate to="/" />} />
     </Routes>
   );
