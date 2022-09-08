@@ -20,31 +20,40 @@ import jwt_decode from "jwt-decode";
 function App() {
 
   const [user, setUser] = useState(null);
-  const [token, setToken] = useState("");
+  const [token, setToken] = useState(localStorage.getItem('token') || null);
 
   function updateToken(userToken) {
-    JoblyApi.token = userToken;
     setToken(userToken);
+    localStorage.setItem('token', userToken);
   }
 
   useEffect(function fetchUser() {
     async function updateUser() {
-      try {
-        let userObj = jwt_decode(token);
-        let currentUser = await JoblyApi.getUser(userObj);
-        setUser(currentUser);
-      } catch (err) {
+      if (token) {
+        try {
+          let userObj = jwt_decode(token);
+          JoblyApi.token = token;
+          let currentUser = await JoblyApi.getUser(userObj);
+          setUser(currentUser);
+        } catch (err) {
+          setUser(null);
+        }
+      } else {
+
         setUser(null);
       }
     }
     updateUser();
   }, [token]);
+
+  /** Log out user, clear token, clear localStorage */
   function logout() {
     setUser(null);
+    setToken("");
     JoblyApi.token = "";
+    // localStorage.clear();
+    localStorage.removeItem('token');
   }
-
-  console.log("API Token: ", JoblyApi.token);
 
   return (
     <div className="App">

@@ -31,7 +31,6 @@ function LoginForm({ updateToken }) {
     evt.preventDefault();
     let response = await JoblyApi.login(formData);
     updateToken(response);
-    console.log(response);
     navigate("/");
   }
 

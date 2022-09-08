@@ -1,3 +1,6 @@
+import { Link } from "react-router-dom";
+import "./CompanyCard.css";
+
 /** Presentational component to display simple info on a company.
  * 
  * Props: { name, description, handle, logo }
@@ -6,13 +9,12 @@
  * 
  */
 
-import { Link } from "react-router-dom";
 
 function CompanyCard({ name, description, handle, logoUrl }) {
 
     return (
-        <Link to={`/companies/${handle}`}>
-            <div>
+        <Link to={`/companies/${handle}`} className="CompanyCard card" >
+            <div className="card-body">
                 <h3>{name}</h3>
                 <p>{description}</p>
                 {logoUrl &&
