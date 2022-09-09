@@ -15,11 +15,12 @@ function CompanyCard({ name, description, handle, logoUrl }) {
     return (
         <Link to={`/companies/${handle}`} className="CompanyCard card" >
             <div className="card-body">
-                <h3>{name}</h3>
-                <p>{description}</p>
-                {logoUrl &&
-                    <img src={logoUrl} alt={handle} />
-                }
+                <h6 className="card-title">{name}
+                    {logoUrl &&
+                        <img src={logoUrl} alt={handle} className="float-end ms-5" />
+                    }
+                </h6>
+                <p><small>{description}</small></p>
             </div>
         </Link>
     );
