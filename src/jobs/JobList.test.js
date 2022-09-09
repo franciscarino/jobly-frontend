@@ -1,35 +1,45 @@
 import React from 'react';
-import { render } from "@testing-library/react";
-import {axios, axiosMock} from "axios";
+import { getByText, render, waitFor } from "@testing-library/react";
+import { screen } from '@testing-library/dom';
+
+
+// import axiosMock from "axios";
+// import "jest-dom/extend-expect";
 
 import JobList from "./JobList";
 
 describe("basic rendering", function () {
-    it("renders without crashing", function () {
-        render(<JobList />);
-    });
+  it("renders without crashing", function () {
+    render(<JobList />);
+  });
 });
 
 describe("AJAX requests function", function () {
-    it("retrieves and displays all jobs on mount", async () => {
-        axiosMock.get.mockResolvedValueOnce({
-            jobs: [
-                {
-                    "id": 1,
-                    "title": "Test, Job",
-                    "salary": 50000,
-                    "equity": "0.123",
-                    "companyHandle": "test-company",
-                    "companyName": "Test-Company"
-                }
-            ]
-        });
-
-        const { container, debug } = render(<JobList />);
-        expect(container.querySelector('.spinner-border')).toBeInTheDocument()
-
-
+  it("retrieves and displays all jobs on mount", async () => {
+    jest.fn().mockResolvedValueOnce({
+      jobs: [
+        {
+          "id": 1,
+          "title": "Test, Job",
+          "salary": 50000,
+          "equity": "0.123",
+          "companyHandle": "test-company",
+          "companyName": "Test-Company"
+        }
+      ]
     });
+
+    const { container } = render(<JobList />);
+    expect(container.querySelector('.spinner-border')).toBeInTheDocument();
+
+    // const resolvedJobList = await waitFor(() => screen.getByText(".JobList"));
+    const resolvedJobList = await screen.findAllByText("Multimedia programmer");
+
+    expect(resolvedJobList).toHaveTextContent("Multimedia programmer");
+
+
+
+  });
 });
 
 //test getting all jobs (display on page)
