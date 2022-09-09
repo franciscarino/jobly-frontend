@@ -44,7 +44,9 @@ function CompanyList() {
 
 
   return (
-    <div>
+
+
+    <div className="CompanyList col-md-8 offset-md-2">
       {<SearchForm submitQuery={filterCompanies} />}
       {companies.data.map(c =>
         <CompanyCard

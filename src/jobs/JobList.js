@@ -43,7 +43,7 @@ function JobList() {
     if (jobs.isLoading) return <Spinner />;
 
     return (
-        <div>
+        <div className="JobList col-md-8 offset-md-2">
             {<SearchForm submitQuery={filterJobs} />}
             <JobCardList jobs={jobs.data} />
         </div>

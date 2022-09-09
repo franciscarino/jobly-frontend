@@ -2,7 +2,7 @@
     padding-top: 20%;
 }
 
-h1, p, h3 {
+.homepage h1, .homepage p, .homepage h3 {
     color: #ffffff;
     text-shadow: 2px 2px 5px #34302f;
 }
