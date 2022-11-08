@@ -43,15 +43,15 @@ function ProfileForm({ updateProfile }) {
             firstName: formData.firstName,
             lastName: formData.lastName,
             email: formData.email
-        }
+        };
         updateProfile(updatedFormData);
-        navigate('/')
+        navigate('/');
     }
 
     if (formData === null) return <Spinner />;
 
     return (
-        <div>
+        <div className="row justify-content-md-center mb-3 mt-5">
             <form className="signupForm" onSubmit={handleSubmit}>
                 <div className="mb-3">
                     <h5>Username</h5>
@@ -94,7 +94,7 @@ function ProfileForm({ updateProfile }) {
                         aria-label="email"
                     />
                 </div>
-                <button>Submit</button>
+                <button className="btn btn-primary">Submit</button>
             </form>
         </div>
 

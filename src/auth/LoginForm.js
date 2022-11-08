@@ -1,5 +1,6 @@
 import { useState } from "react";
 import JoblyApi from "../api";
+import './LoginForm.css';
 import { useNavigate } from "react-router-dom";
 
 const defaultInitialFormData = { username: "", password: "" };
@@ -36,32 +37,34 @@ function LoginForm({ updateToken }) {
 
 
   return (
-    <div>
+    <div className="row justify-content-md-center mb-3 mt-5 login-form-container">
       <form className="LoginForm" onSubmit={handleSubmit}>
         <div className="mb-3">
-          <h5>Username</h5>
+          {/* <h5>Username</h5> */}
           <input
             id="loginForm-username"
             name="username"
-            // className="form-control"
+            placeholder="Username"
+            className="form-control"
             onChange={handleChange}
             value={formData.username}
             aria-label="username"
           />
         </div>
         <div className="mb-3">
-          <h5>Password</h5>
+          {/* <h5>Password</h5> */}
           <input
             id="loginForm-password"
             name="password"
+            placeholder="Password"
             type="password"
-            // className="form-control"
+            className="form-control"
             onChange={handleChange}
             value={formData.password}
             aria-label="password"
           />
         </div>
-        <button>Submit</button>
+        <button className="btn btn-primary">Submit</button>
       </form>
     </div>
 

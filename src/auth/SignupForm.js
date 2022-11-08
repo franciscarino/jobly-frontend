@@ -43,31 +43,33 @@ function SignupForm({ updateToken }) {
 
 
   return (
-    <div>
+    <div className="row justify-content-md-center mb-3 mt-5">
       <form className="signupForm" onSubmit={handleSubmit}>
         <div className="mb-3">
-          <h5>Username</h5>
+          {/* <h5>Username</h5> */}
           <input
             id="signupForm-username"
             name="username"
+            placeholder="Username"
             onChange={handleChange}
             value={formData.username}
             aria-label="username"
           />
         </div>
         <div className="mb-3">
-          <h5>Password</h5>
+          {/* <h5>Password</h5> */}
           <input
             id="signupForm-password"
             name="password"
             type="password"
+            plceceholder="Password"
             onChange={handleChange}
             value={formData.password}
             aria-label="password"
           />
         </div>
         <div className="mb-3">
-          <h5>First Name</h5>
+          {/* <h5>First Name</h5> */}
           <input
             id="signupForm-firstName"
             name="firstName"
@@ -77,7 +79,7 @@ function SignupForm({ updateToken }) {
           />
         </div>
         <div className="mb-3">
-          <h5>Last Name</h5>
+          {/* <h5>Last Name</h5> */}
           <input
             id="signupForm-lastName"
             name="lastName"
@@ -87,7 +89,7 @@ function SignupForm({ updateToken }) {
           />
         </div>
         <div className="mb-3">
-          <h5>Email</h5>
+          {/* <h5>Email</h5> */}
           <input
             id="signupForm-email"
             name="email"
@@ -96,7 +98,7 @@ function SignupForm({ updateToken }) {
             aria-label="email"
           />
         </div>
-        <button>Submit</button>
+        <button className="btn btn-primary">Submit</button>
       </form>
     </div>
 
