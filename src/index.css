@@ -5,16 +5,15 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url(../public/dsbg1_hl_invert.png);
+  background-image: url(../public/blue-workspace.jpeg);
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: 50%;
-  
+
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
