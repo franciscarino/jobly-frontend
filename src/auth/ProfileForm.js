@@ -1,6 +1,7 @@
 import { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import userContext from "../userContext";
+import './ProfileForm.css';
 import Spinner from "../common/Spinner";
 
 /** Profile Form
@@ -51,51 +52,60 @@ function ProfileForm({ updateProfile }) {
     if (formData === null) return <Spinner />;
 
     return (
-        <div className="row justify-content-md-center mb-3 mt-5">
-            <form className="signupForm" onSubmit={handleSubmit}>
-                <div className="mb-3">
-                    <h5>Username</h5>
-                    <input
-                        id="signupForm-username"
-                        name="username"
-                        onChange={handleChange}
-                        value={formData.username}
-                        aria-label="username"
-                        disabled
-                    />
+        <div className="ProfileForm col-md-6 col-lg-4 offset-md-3 offset-lg-4">
+            <h2>Profile</h2>
+            <div className="card">
+                <div className="card-body">
+                    <form className="signupForm" onSubmit={handleSubmit}>
+                        <div className="mb-3">
+                            <input
+                                id="signupForm-username"
+                                name="username"
+                                placeholder="Username"
+                                className="form-control"
+                                onChange={handleChange}
+                                value={formData.username}
+                                aria-label="username"
+                                disabled
+                            />
+                        </div>
+                        <div className="mb-3">
+                            <input
+                                id="signupForm-firstName"
+                                name="firstName"
+                                placeholder="First Name"
+                                className="form-control"
+                                onChange={handleChange}
+                                value={formData.firstName}
+                                aria-label="firstName"
+                            />
+                        </div>
+                        <div className="mb-3">
+                            <input
+                                id="signupForm-lastName"
+                                name="lastName"
+                                placeholder="Last Name"
+                                className="form-control"
+                                onChange={handleChange}
+                                value={formData.lastName}
+                                aria-label="lastName"
+                            />
+                        </div>
+                        <div className="mb-3">
+                            <input
+                                id="signupForm-email"
+                                name="email"
+                                placeholder="Email"
+                                className="form-control"
+                                onChange={handleChange}
+                                value={formData.email}
+                                aria-label="email"
+                            />
+                        </div>
+                        <button className="btn btn-primary">Submit</button>
+                    </form>
                 </div>
-                <div className="mb-3">
-                    <h5>First Name</h5>
-                    <input
-                        id="signupForm-firstName"
-                        name="firstName"
-                        onChange={handleChange}
-                        value={formData.firstName}
-                        aria-label="firstName"
-                    />
-                </div>
-                <div className="mb-3">
-                    <h5>Last Name</h5>
-                    <input
-                        id="signupForm-lastName"
-                        name="lastName"
-                        onChange={handleChange}
-                        value={formData.lastName}
-                        aria-label="lastName"
-                    />
-                </div>
-                <div className="mb-3">
-                    <h5>Email</h5>
-                    <input
-                        id="signupForm-email"
-                        name="email"
-                        onChange={handleChange}
-                        value={formData.email}
-                        aria-label="email"
-                    />
-                </div>
-                <button className="btn btn-primary">Submit</button>
-            </form>
+            </div>
         </div>
 
     );
