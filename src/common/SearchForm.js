@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./SearchForm.css";
 
 
 /**
@@ -47,7 +48,7 @@ function SearchForm({ submitQuery }) {
               />
             </div>
             <div className="col-auto">
-              <button className="btn btn-lg btn-primary">Submit</button>
+              <button className="btn btn-lg btn-primary searchButton">Submit</button>
             </div>
           </div>
         </form>

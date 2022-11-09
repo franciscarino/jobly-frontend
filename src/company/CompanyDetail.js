@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import JoblyApi from "../api";
 import JobCardList from "../jobs/JobCardList";
+import "./CompanyDetail.css";
 import Spinner from "../common/Spinner";
 
 /** Show detail on a single company by handle.
@@ -36,9 +37,9 @@ function CompanyDetail() {
     if (company.isLoading) return <Spinner />;
 
     return (
-        <div>
-            <h1>{company.name}</h1>
-            <p>{company.description}</p>
+        <div className="CompanyDetail col-md-8 offset-md-2">
+            <h4 className="CompanyDetail">{company.name}</h4>
+            <p className="CompanyDetail">{company.description}</p>
             <JobCardList jobs={company.jobs} />
         </div>
     );

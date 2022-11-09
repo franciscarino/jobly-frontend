@@ -1,0 +1,12 @@
+.SearchForm {
+    padding-top: 2rem;
+}
+
+.SearchForm input:focus {
+    box-shadow: none;
+    border-color: #ced4da;
+}
+
+.searchButton {
+    margin-left: 1rem;
+}
