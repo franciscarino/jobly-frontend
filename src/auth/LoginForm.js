@@ -37,36 +37,43 @@ function LoginForm({ updateToken }) {
 
 
   return (
-    <div className="row justify-content-md-center mb-3 mt-5 login-form-container">
-      <form className="LoginForm" onSubmit={handleSubmit}>
-        <div className="mb-3">
-          {/* <h5>Username</h5> */}
-          <input
-            id="loginForm-username"
-            name="username"
-            placeholder="Username"
-            className="form-control"
-            onChange={handleChange}
-            value={formData.username}
-            aria-label="username"
-          />
+    <div className="LoginForm">
+      <div className="container col-md-6 offset-md-3 col-lg-4 offset-lg-4">
+        <h2 className="mb-3">Log In</h2>
+        <div className="card">
+          <div className="card-body">
+            <form onSubmit={handleSubmit}>
+              <div className="mb-3">
+                <input
+                  id="loginForm-username"
+                  name="username"
+                  placeholder="Username"
+                  className="form-control"
+                  onChange={handleChange}
+                  value={formData.username}
+                  aria-label="username"
+                />
+              </div>
+              <div className="mb-3">
+                <input
+                  id="loginForm-password"
+                  name="password"
+                  placeholder="Password"
+                  type="password"
+                  className="form-control"
+                  onChange={handleChange}
+                  value={formData.password}
+                  aria-label="password"
+                />
+              </div>
+              <div className="d-grid">
+                <button className="btn btn-primary">Submit</button>
+              </div>
+            </form>
+          </div>
         </div>
-        <div className="mb-3">
-          {/* <h5>Password</h5> */}
-          <input
-            id="loginForm-password"
-            name="password"
-            placeholder="Password"
-            type="password"
-            className="form-control"
-            onChange={handleChange}
-            value={formData.password}
-            aria-label="password"
-          />
-        </div>
-        <button className="btn btn-primary">Submit</button>
-      </form>
-    </div>
+      </div>
+    </div >
 
   );
 

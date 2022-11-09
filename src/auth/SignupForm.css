@@ -1,8 +1,8 @@
-.LoginForm h2 {
+.SignupForm h2 {
     color: #ffffff;
     text-shadow: 2px 2px 5px rgb(52, 48, 47);
 }
 
-.LoginForm {
+.SignupForm {
     margin-top: 10%;
 }
