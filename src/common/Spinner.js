@@ -1,9 +1,11 @@
 /** Presentational component for spinner. */
 
+import "./Spinner.css";
+
 function Spinner() {
   return (
-    <div className="spinner-border text-light" role="status">
-      <span className="sr-only"></span>
+    <div className="LoadingSpinner">
+      Loading ...
     </div>
   );
 }
