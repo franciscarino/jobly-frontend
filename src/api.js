@@ -1,7 +1,7 @@
 import axios from "axios";
 
-// const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
-const BASE_URL = "http://localhost:3001";
+const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
+// const BASE_URL = "http://localhost:3001";
 
 /** API Class.
  *
@@ -80,7 +80,6 @@ class JoblyApi {
     return res.token;
   }
 
-  //TODO: look into token
   /**Update user profile */
   static async updateProfile(data, username) {
     let res = await this.request(`users/${username}`, data, "patch");
