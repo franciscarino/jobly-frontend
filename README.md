@@ -1,70 +1,59 @@
-# Getting Started with Create React App
+# 💻 Jobly
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Jobly is a job listing application inspired by Indeed. Users can register/login with their account credentials. Logged-in users can search for companies and apply for jobs.
 
-## Available Scripts
+Repository for backend can be found [here](https://github.com/franciscarino/jobly-backend).
 
-In the project directory, you can run:
+[Demo](https://jobly--fc.surge.sh/)
 
-### `npm start`
+![JoblyDemoGif](https://raw.githubusercontent.com/franciscarino/sharebnb/78d768e9b2a51cdeca899613515bca079a9c73de/sharebnb-demo.gif)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Tech Stack
+- JavaScript
+- React
+- Express
+- Node.js
+- PostgreSQL
+- JSON Schema
+- bcrypt
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Run on your machine
+1. Clone the repository, create a virtual environment and install depencencies
+```
+$ git clone https://github.com/franciscarino/sharebnb.git
+$ python3 -m venv venv
+$ source venv/bin/activate
+(venv) $ pip install -r requirements.txt
+```
 
-### `npm run build`
+2. Setup the database
+```
+(venv) $ psql
+=# CREATE DATABASE sharebnb;
+=# (control-d)
+(venv) $ python seed.py
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3. Create .env file for config
+```
+SECRET_KEY=*****
+DATABASE_URL=postgresql:///sharebnb
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+4. Start the server and view in browser
+```
+$ flask run -p 5001
+```
+This runs the app in the development mode.
+Open [http://localhost:5001](http://localhost:5001) to view it in your browser.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+### Future Features to Add
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+* Thorough testing
+* Add calendar for booking reservations
+* Edit form
+* Allow users to message other users
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
