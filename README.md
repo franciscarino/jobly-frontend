@@ -7,8 +7,8 @@ Repository for backend can be found [here](https://github.com/franciscarino/jobl
 #### [Demo](https://jobly--fc.surge.sh/) ####
 
 #### Demo Login ####
-Username: user1
-Password: password
+- Username: user1
+- Password: password
 
 ![JoblyDemoGif](https://github.com/franciscarino/jobly-frontend/blob/main/public/jobly-demo.gif?raw=true)
 
