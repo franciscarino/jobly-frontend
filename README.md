@@ -2,7 +2,7 @@
 
 Jobly is a job listing application inspired by Indeed. Users can register/login with their account credentials. Logged-in users can search for companies and apply for jobs.
 
-Repository for backend can be found [here](https://github.com/franciscarino/jobly-backend).
+Repository for the backend can be found [here](https://github.com/franciscarino/jobly-backend).
 
 #### [Demo](https://jobly--fc.surge.sh/) ####
 
